@@ -28,7 +28,7 @@ export default class App extends React.Component {
       }
     })})
   }
-  addTodo = (e, todo) => {
+  addTodo = (e, todo ) => {
     e.preventDefault()
     const newTodo = {
       name: todo,
@@ -41,7 +41,7 @@ export default class App extends React.Component {
     return (
       <div>
         <TodoList todos={this.state.todos} toggleComplete={this.toggleComplete}/>
-        <Form />
+        <Form addTodo={this.addTodo} />
       </div>
     )
   }
