@@ -31,14 +31,23 @@ export default class App extends React.Component {
     });
   };
   addTodo = (name) => {
-    this.setState({ ...this.state, 
-      todos: this.state.todos.concat({ id: getId(), completed: false, name: name})});
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.concat({
+        id: getId(),
+        completed: false,
+        name: name,
+      }),
+    });
   };
   clearCompleted = () => {
-    this.setState({...this.state, todos: this.state.todos.filter(todo => {
-      if (!todo.completed) return todo;
-    })})
-  }
+    this.setState({
+      ...this.state,
+      todos: this.state.todos.filter((todo) => {
+        if (!todo.completed) return todo;
+      }),
+    });
+  };
   render() {
     return (
       <div>
@@ -47,7 +56,11 @@ export default class App extends React.Component {
           toggleComplete={this.toggleComplete}
         />
         <Form addTodo={this.addTodo} />
-        <input type="button" value="Hide Completed" onClick={this.clearCompleted}/>
+        <input
+          type="button"
+          value="Hide Completed"
+          onClick={this.clearCompleted}
+        />
       </div>
     );
   }
